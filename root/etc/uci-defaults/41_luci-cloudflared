@@ -8,4 +8,5 @@ uci -q batch <<-EOF >/dev/null
 EOF
 
 rm -f /tmp/luci-indexcache
+chmod 755 /etc/init.d/cloudflared
 exit 0
