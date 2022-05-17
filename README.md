@@ -9,4 +9,5 @@ use to expose domoticz default web port 8080
 
         cd package/feeds/
         git clone https://github.com/khongpt/luci-app-cloudflared.git
-        chmod -R 755 luci-app-cloudflared
+        
+        ** remove line 10: LUCI_DEPENDS:=+openwrt-cloudflared
