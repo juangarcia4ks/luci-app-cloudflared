@@ -1,11 +1,11 @@
 #!/bin/sh
 
+uci -q batch <<-EOF >/dev/null
+	delete ucitrack.@cloudflared[-1]
+	add ucitrack cloudflared
+	set ucitrack.@cloudflared[-1].init=cloudflared
+	commit ucitrack
+EOF
 
-uci	delete ucitrack.@cloudflared[-1]
-uci	add ucitrack cloudflared
-uci	set ucitrack.@cloudflared[-1].init=cloudflared
-uci	commit ucitrack
-
-
-
+rm -f /tmp/luci-indexcache
 exit 0
