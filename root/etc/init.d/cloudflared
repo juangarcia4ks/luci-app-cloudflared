@@ -1,6 +1,6 @@
 #!/bin/sh /etc/rc.common
 
-START=99
+START=90
 
 USE_PROCD=1
 
@@ -26,10 +26,10 @@ start_instance() {
 	
 	config_get free $cfg 'free'
 	if [ "$free" == "1" ];  then
-		ARGS="tunnel -url http://localhost:8080"
+		ARGS="tunnel --logfile /tmp/cloudflared.info -url http://localhost:8080"
 	else
 		config_get token $cfg 'token'
-		ARGS="tunnel run --token $token"
+		ARGS="tunnel --logfile /tmp/cloudflared.info run --token $token"
 	fi
 
 	procd_open_instance
